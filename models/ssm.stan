@@ -27,8 +27,9 @@ model {
     r ~ cauchy(0., 1.);
 
     // likelihoods
-//    x[2:N] ~ normal(mu[1:N-1], q);
-    x[2:N] ~ new_normal(mu[1:N-1], q);
+//    x[2:N] ~ normal(mu[1:N-1], q);        // standard distribution
+//    x[2:N] ~ new_normal(mu[1:N-1], q);      // use to test adding new distribution
+    x[2:N] ~ new_normal_blas(mu[1:N-1], q);      // use to test blas
 //    target += new_normal_lpdf(x[2:N] | mu[1:N-1], q);
     y ~ normal(x, r);
 
