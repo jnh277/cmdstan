@@ -30,4 +30,4 @@
 
 # Adding other arbitrary C++ compiler flags
 # CXXFLAGS+= -funroll-loops
-LDLIBS += -lblas
+LDLIBS += -lblas -llapack
